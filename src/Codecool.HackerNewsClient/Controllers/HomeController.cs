@@ -40,6 +40,7 @@ namespace HackerNewsClient.Controllers
         {
             try
             {
+                ViewData["currentPage"] = page;
                 string myURL = $"{apiBaseURL}/news/{page}.json";
                 var response = await _httpClient.GetAsync(myURL);
                 response.EnsureSuccessStatusCode();
