@@ -1,14 +1,47 @@
-﻿
+﻿@using Codecool.HackerNewsClient.Models
+
+@model IEnumerable<News>
 
 
 <div class="jumbotron">
     Welcome
 </div>
-<div class="row">
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-    </div>
-</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            Time Ago
+        </th>
+        <th>
+            Web Url
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeAgo)
+            </td>
+            <td>
+                <a href=@item.Url target="_blank">Link</a>
+            </td>
+        </tr>
+    }
+
+</table>
